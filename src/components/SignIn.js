@@ -48,7 +48,8 @@ export default function SignIn({ setName }) {
   const classes = useStyles();
   const [disabled, setDisabled] = useState(true);
   const [text, setText] = useState('');
-  // console.log({disabled, text});
+  const [isComposed, setIsComposed] = useState(false);
+  console.log({disabled, text, isComposed});
 
   useEffect(() => {
     const disabled = text === ''
@@ -74,11 +75,15 @@ export default function SignIn({ setName }) {
             autoFocus
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => {
-              if(e.key === 'Enter') {
+              if (isComposed) return;
+
+              if (e.key === 'Enter') {
                 setName(e.target.value);
                 e.preventDefault();
               }
             }}
+            onCompositionStart={() => setIsComposed(true)}
+            onCompositionEnd={() => setIsComposed(false)}
           />
           <Button
             type="button"
