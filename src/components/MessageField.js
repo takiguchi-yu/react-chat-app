@@ -3,6 +3,7 @@ import { TextField } from '@material-ui/core';
 
 import { pushMessage } from '../firebase';
 
+// メッセージのテキストコンポーネント
 const MessageField = ({ inputEl, name, setText, text }) => {
   const [isComposed, setIsComposed] = useState(false);
   return (

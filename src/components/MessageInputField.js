@@ -13,6 +13,7 @@ const useStyles = makeStyles({
   }
 })
 
+// メッセージ入力部分のコンポーネント
 const MessageInputField = ({ name }) => {
   const inputEl = useRef(null);
   const [text, setText] = useState('');
