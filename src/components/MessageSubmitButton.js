@@ -11,7 +11,7 @@ const MessageSubmitButton = ({ inputEl, name, text, setText }) => {
       disabled={text === ''}
       aria-label="Send"
       onClick={() => {
-        pushMessage({ name: 'はむさん', text });
+        pushMessage({ name, text });
         setText('');
         inputEl.current.focus();
       }}
